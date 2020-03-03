@@ -1,0 +1,47 @@
+package raul.carros;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.util.Optional;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import raul.carros.domain.Carro;
+import raul.carros.domain.CarroService;
+import raul.carros.domain.dto.CarroDTO;
+
+import static junit.framework.TestCase.*;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class CarroApplicationTests {
+	
+	@Autowired
+	private CarroService service;
+
+	@Test
+	public void test1InsertCarro() {
+		
+		Carro carro = new Carro();
+		carro.setNome("Ferrari");
+		carro.setTipo("esportivos");
+		
+		CarroDTO c = service.insert(carro);		
+		assertNotNull(c);
+		
+		Long id = c.getId();
+		assertNotNull(id);
+		
+		// Buscar objeto
+		Optional<CarroDTO> op = service.getCarroById(id);
+		assertTrue(op.isPresent());
+		
+		c = op.get();
+		assertEquals("Ferrari", c.getNome());
+		assertEquals("esportivos", c.getTipo());
+
+	}
+
+}

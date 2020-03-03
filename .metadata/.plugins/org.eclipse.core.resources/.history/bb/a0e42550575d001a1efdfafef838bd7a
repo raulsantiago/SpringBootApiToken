@@ -1,0 +1,76 @@
+package raul.carros.domain;
+
+import java.util.Set;
+import javax.persistence.*;
+import lombok.*;
+
+@Data
+@Entity
+public class Carro {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	private String nome;
+    private String tipo;
+    private String descricao;
+    private String urlFoto;
+    private String urlVideo;
+    private String latitude;
+    private String longitude;    
+   
+//    @ManyToOne
+//    private User users;
+    
+    
+//    // Muitos para um em JPA - parte 1
+//	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    @JoinColumn(name = "iduser", nullable = false)    
+//    private User users;
+
+	
+	// TUDO ABAIXO Ã‰ SUBSTITUIDO PELO LOMBOK
+//	// Ã© obrigatorio quando usar @Entity
+//		public Carro() {
+//			super();
+//		}
+//		
+//		
+//	
+//	public Carro(Long id, String nome, String tipo) {
+//			super();
+//			this.id = id;
+//			this.nome = nome;
+//			this.tipo = tipo;
+//		}
+//
+//
+//
+//	public String getTipo() {
+//		return tipo;
+//	}
+//
+//	public void setTipo(String tipo) {
+//		this.tipo = tipo;
+//	}
+//	
+//	public Long getId() {
+//		return id;
+//	}
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
+//	public String getNome() {
+//		return nome;
+//	}
+//	public void setNome(String nome) {
+//		this.nome = nome;
+//	}
+	
+  
+    
+	
+
+}
+
